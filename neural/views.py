@@ -26,12 +26,16 @@ out = []
 
 
 def getNumberWithPage(request):
-    l = [float(i) for i in request.GET['pixs'].replace(' ', '').replace('[', '').replace(']', '').split(',')]
+    inV = request.GET['pixs']
+    l = np.array([int(i) for i in inV.split(',')])
+    l.shape = (-1, 4)
+    # l = np.sum(l, axis=1)
+    l = l[:, 3]
     inputs = (np.asfarray(l) / 255.0 * 0.99) + 0.01
     outputs = neurals.query(inputs)
     out.append([round(i, 2) for i in outputs.flatten() * 100])
     return render(request, 'index.html',
-                  {'number': out, 'myNum': np.argmax(outputs)})
+                  {'number': out[::-1], 'myNum': np.argmax(outputs)})
 
 
 def getNumber(request):

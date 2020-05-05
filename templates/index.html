@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
+    <title>Robotics</title>
 
     <style type="text/css">
         .container {
@@ -28,18 +28,33 @@
         td {
             text-align: center;
         }
+
+        .paint canvas {
+            margin-right: 40px;
+        }
+        .paint p {
+            max-width: 100%;
+        }
     </style>
 </head>
 <body>
 <div class="container">
-
-    <form action="{% url 'calc_num_page' %}" method="get">
-        <input type="text" name="pixs"
-               value="[0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 84, 185, 159, 151, 60, 36, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 222, 254, 254, 254, 254, 241, 198, 198, 198, 198, 198, 198, 198, 198, 170, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 67, 114, 72, 114, 163, 227, 254, 225, 254, 254, 254, 250, 229, 254, 254, 140, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 17, 66, 14, 67, 67, 67, 59, 21, 236, 254, 106, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 83, 253, 209, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 22, 233, 255, 83, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 129, 254, 238, 44, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 59, 249, 254, 62, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133, 254, 187, 5, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 9, 205, 248, 58, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 126, 254, 182, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 75, 251, 240, 57, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 19, 221, 254, 166, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 3, 203, 254, 219, 35, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 38, 254, 254, 77, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 31, 224, 254, 115, 1, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 133, 254, 254, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 61, 242, 254, 254, 52, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 121, 254, 254, 219, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 121, 254, 207, 18, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0]">
-        <button type="submit">Send</button>
-    </form>
-    <br>
     <h1>Your number is {{ myNum }}</h1>
+    <div class="paint">
+        <canvas id="canvas2" width="28" height="28" style="border: 5px solid #000000;">Update your browser to support
+            HTML5
+            Canvas
+        </canvas>
+        <canvas id="canvas" width="750" height="450" style="border: 5px solid #000000;">Update your browser to support
+            HTML5
+            Canvas
+        </canvas>
+        <form action="{% url 'calc_num_page' %}" method="get">
+        <input type="text" name="pixs" id="output_text"
+               value="" style="display: none;">
+        <button onclick="btnSend()" type="submit">Send</button>
+    </form>
+    </div>
     <table ellspacing="2" border="1" cellpadding="5">
         <tr>
             {% for n in '0123456789' %}
@@ -53,9 +68,52 @@
                 {% endfor %}
             </tr>
         {% endfor %}
-
     </table>
 
 </div>
+
+<script type="text/javascript">
+    var b = false;
+    var canvas = document.getElementById('canvas');
+    var context = canvas.getContext('2d');
+    var radius = 10;
+    {#canvas.width = window.innerWidth;#}
+    {#canvas.height = window.innerHeight;#}
+
+    canvas.width = 280;
+    canvas.height = 280;
+    var putPoint = function (e) {
+        if (b) {
+            context.beginPath();
+            context.arc(e.offsetX, e.offsetY, 8, 0, 6.28);
+            {#context.rect(e.offsetX, e.offsetY, radius, radius);#}
+            context.fill();
+            console.log(e.offsetX + ' ' + e.offsetY,);
+        }
+    };
+    var mouseDown = function (e) {
+        b = true;
+        console.log(b);
+    };
+
+    var mouseUp = function (e) {
+        b = false;
+        console.log(b);
+    };
+    canvas.addEventListener('mousemove', putPoint);
+    canvas.addEventListener('mouseup', mouseUp);
+    canvas.addEventListener('mousedown', mouseDown);
+
+    function btnSend() {
+        var scale = 1 / 10;
+        var t = document.getElementById('output_text');
+        const smallContext = document.getElementById("canvas2").getContext("2d");
+        smallContext.scale(scale, scale);
+        smallContext.drawImage(canvas, 0, 0);
+        t.value = smallContext.getImageData(0, 0, 280 * scale, 280 * scale).data;
+    }
+</script>
+
 </body>
+
 </html>

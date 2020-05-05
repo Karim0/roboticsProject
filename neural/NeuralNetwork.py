@@ -29,8 +29,9 @@ class NeuralNetwork:
         output_errors = targets - final_outputs
         hidden_errors = np.dot(self.who.T, output_errors)
 
-        self.who += self.lr * np.dot((output_errors * final_outputs * (1.0 - final_outputs)), np.transpose(hidden_outputs))
-        self.wih += self.lr * np.dot((hidden_errors * hidden_outputs *(1.0 - hidden_outputs)), np.transpose(inputs))
+        self.who += self.lr * np.dot((output_errors * final_outputs * (1.0 - final_outputs)),
+                                     np.transpose(hidden_outputs))
+        self.wih += self.lr * np.dot((hidden_errors * hidden_outputs * (1.0 - hidden_outputs)), np.transpose(inputs))
         return final_outputs
 
     def query(self, inputs_list):
