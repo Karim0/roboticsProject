@@ -32,6 +32,7 @@
         .paint canvas {
             margin-right: 40px;
         }
+
         .paint p {
             max-width: 100%;
         }
@@ -49,11 +50,12 @@
             HTML5
             Canvas
         </canvas>
-        <form action="{% url 'calc_num_page' %}" method="get">
-        <input type="text" name="pixs" id="output_text"
-               value="" style="display: none;">
-        <button onclick="btnSend()" type="submit">Send</button>
-    </form>
+        <form action="{% url 'calc_num_page' %}" method="POST">
+            {% csrf_token %}
+            <input type="text" name="pixs" id="output_text"
+                   value="" style="display: none;">
+            <button onclick="btnSend()" type="submit">Send</button>
+        </form>
     </div>
     <table ellspacing="2" border="1" cellpadding="5">
         <tr>
@@ -105,12 +107,12 @@
     canvas.addEventListener('mousedown', mouseDown);
 
     function btnSend() {
-        var scale = 1 / 10;
+        {#var scale = 1 / 10;#}
         var t = document.getElementById('output_text');
-        const smallContext = document.getElementById("canvas2").getContext("2d");
-        smallContext.scale(scale, scale);
-        smallContext.drawImage(canvas, 0, 0);
-        t.value = smallContext.getImageData(0, 0, 280 * scale, 280 * scale).data;
+        {#const smallContext = document.getElementById("canvas2").getContext("2d");#}
+        {#smallContext.scale(scale, scale);#}
+        {#smallContext.drawImage(canvas, 0, 0);#}
+        t.value = context.getImageData(0, 0, 280, 280).data;
     }
 </script>
 
